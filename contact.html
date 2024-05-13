@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Kultum</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+             width: 2px; /* Adjust the size of the stars as needed */
+             height: 2px; /* Adjust the size of the stars as needed */
+             background: white; /* Color of the stars */
+            border-radius: 50%;
+             animation: animateStars 50s linear infinite;
+}
+
+
+       @keyframes animateStars {
+           0% { transform: translateY(0px); }
+         100% { transform: translateY(-100vh); }
+}
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            border-radius: 8px;
+            background: #1a1a1a;
+            animation: fadeIn 1s ease;
+            z-index: 3;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+               color: #ff0000;
+               margin-bottom: 20px;
+              animation: slideInDown 1s ease;
+             font-family: 'Poetsen One', sans-serif; /* 'Poetsen One' will be used if available, otherwise, a generic sans-serif font will be used */
+}
+
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: rgb(85, 76, 76);
+            transition: background-color 0.3s ease;
+        }
+        input.form-control, textarea.form-control {
+            background: #333;
+            color: #ccc;
+            border: none;
+        }
+        input.form-control:focus, textarea.form-control:focus {
+            background: #333;
+            color: #ccc;
+            border-color: #333;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: darkred;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars">
+    </div>
+    <div class="container">
+        <h1><i class="fas fa-envelope"></i> Contact Us!</h1>
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <input type="hidden" name="redirect" value="https://kultum.lol/">
+            <input type="hidden" name="access_key" value="decfd0b0-846b-4022-ad5b-3f2a0b6b193f" />
+            <input type="hidden" name="subject" value="Kultum | Contact" /> 
+            <input type="hidden" name="from_name" value="Hey, Kultum Owner you got a new message!">
+            <input type="checkbox" name="botcheck" id="" style="display: none;" />
+            <input type="text" class="form-control" placeholder="Your Discord Name" name="name">
+            <input type="email" class="form-control" placeholder="Your Email" name="email">
+            <textarea class="form-control" placeholder="Your Message" name="message"></textarea>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Submit <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+<script>
+const starsContainer = document.querySelector('.stars');
+const numStars = 100; // Change this number for more or fewer stars
+const numLayers = 3;
+
+for (let j = 0; j < numLayers; j++) {
+    for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDelay = `${Math.random() * 50}s`; 
+        starsContainer.appendChild(star);
+    }
+}
+    </script>
+</body>
+</html>

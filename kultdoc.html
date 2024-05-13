@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="assets/logo.png" rel="icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kultum Documentation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #3b3b3b;
+            color: #c8c8c8;
+            font-family: 'Consolas', monospace;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 20px;
+            transition: all 0.3s ease-in-out;
+            max-height: 95vh; 
+            overflow-y: auto;
+        }
+
+        .title {
+            font-size: 24px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation: glow 2s infinite alternate;
+        }
+
+        .section {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .type {
+            color: #64c8ff;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #ffa07a;
+        }
+         
+        .normal {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+      
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #fff;
+            background-color: #555;
+            border-color: #dee2e6 #dee2e6 #555;
+        }
+        .nav-tabs .nav-link {
+            color: #fff; 
+        }
+        .tab-content > .tab-pane {
+            display: none;
+        }
+
+        .tab-content > .active {
+            display: block;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Documentation of Kultum</h1>
+        
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="docTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="string-functions-tab" data-toggle="tab" href="#string-functions" role="tab" aria-controls="string-functions" aria-selected="true">String Functions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="clipboard-tab" data-toggle="tab" href="#clipboard" role="tab" aria-controls="clipboard" aria-selected="false">Clipboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="metatable-tab" data-toggle="tab" href="#metatable" role="tab" aria-controls="metatable" aria-selected="false">Metatable</a>
+            </li>
+         
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="string-functions" role="tabpanel" aria-labelledby="string-functions-tab">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-cube"></i> String Functions</h2>
+                    <a class="type">string</a> decompile(<a class="type">LocalScript/ModuleScript</a>)<br>
+                    <span class="normal">- Decompile a given LocalScript/ModuleScript and return the decompiled output</span>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="clipboard" role="tabpanel" aria-labelledby="clipboard-tab">
+        
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-clipboard"></i> Clipboard</h2>
+                    <a class="type">string</a> getclipboard(<a class="type">void</a>)<br>
+                    <span class="normal">- Returns whatever is copied on the clipboard as a string</span>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="metatable" role="tabpanel" aria-labelledby="metatable-tab">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-dice"></i> Metatable</h2>
+                    <a class="type">table</a> getrawmetatable(<a class="type">variant</a>)<br>
+                    <span class="normal">- Returns metatable of <a class="type">variant</a>, returns nil if there is no metatable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Initialize tabs
+        $('#docTabs a').on('click', function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    </script>
+</body>
+</html>
